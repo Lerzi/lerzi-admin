@@ -1,7 +1,98 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { GlobalThemeOverrides } from 'naive-ui'
+const colors = {
+  primary: {
+    "100": "#E6E6FB",
+    "200": "#CDCFF7",
+    "300": "#ADAFE9",
+    "400": "#9092D3",
+    "500": "#696BB6",
+    "600": "#4C4E9C",
+    "700": "#343683",
+    "800": "#212269",
+    "900": "#141557",
+    "DEFAULT": '#696BB6'
+  },
+  success: {
+    "100": "#CDFCD3",
+    "200": "#9DF9B1",
+    "300": "#6BEF95",
+    "400": "#45E085",
+    "500": "#10CC71",
+    "600": "#0BAF70",
+    "700": "#08926B",
+    "800": "#057661",
+    "900": "#036159",
+    "DEFAULT": '#10CC71'
+
+  },
+  info: {
+    "100": "#DAFBFE",
+    "200": "#B6F4FE",
+    "300": "#92E6FC",
+    "400": "#76D6FA",
+    "500": "#4ABDF7",
+    "600": "#3695D4",
+    "700": "#2570B1",
+    "800": "#17508F",
+    "900": "#0E3876",
+    "DEFAULT": '#4ABDF7'
+  },
+  warning: {
+    "100": "#FEF3D4",
+    "200": "#FDE5A9",
+    "300": "#FBD17E",
+    "400": "#F8BE5D",
+    "500": "#f49f29",
+    "600": "#D17E1D",
+    "700": "#AF6114",
+    "800": "#8D470D",
+    "900": "#753407",
+    "DEFAULT": '#f49f29'
+  },
+  error: {
+    "100": "#FFDCD6",
+    "200": "#FFB1AE",
+    "300": "#FF858C",
+    "400": "#FF677E",
+    "500": "#ff3567",
+    "600": "#DB2664",
+    "700": "#B71A5F",
+    "800": "#931057",
+    "900": "#7A0A51",
+    "DEFAULT": '#ff3567'
+  }
+}
+
+const themeOverrides = ref<GlobalThemeOverrides>({
+  common: {
+    fontWeightStrong: '600',
+    primaryColor: colors.primary['DEFAULT'],
+    primaryColorHover: colors.primary['400'],
+    primaryColorPressed: colors.primary['700'],
+    primaryColorSuppl: colors.primary['600'],
+    infoColor: colors.info['DEFAULT'],
+    infoColorHover: colors.info['400'],
+    infoColorPressed: colors.info['700'],
+    infoColorSuppl: colors.info['600'],
+    successColor: colors.success['DEFAULT'],
+    successColorHover: colors.success['400'],
+    successColorPressed: colors.success['700'],
+    successColorSuppl: colors.success['600'],
+    warningColor: colors.warning['DEFAULT'],
+    warningColorHover: colors.warning['400'],
+    warningColorPressed: colors.warning['700'],
+    warningColorSuppl: colors.warning['600'],
+    errorColor: colors.error['DEFAULT'],
+    errorColorHover: colors.error['400'],
+    errorColorPressed: colors.error['700'],
+    errorColorSuppl: colors.error['600'],
+  }
+})
+</script>
 
 <template>
-  <n-config-provider :theme-overrides="{ common: { fontWeightStrong: '600' } }">
+  <n-config-provider :theme-overrides="themeOverrides">
     <RouterView />
   </n-config-provider>
 </template>
