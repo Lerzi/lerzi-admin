@@ -26,7 +26,7 @@ const router = createRouter({
       children: [
         {
           path: '/home/index',
-          name: 'HomeIndex',
+          name: 'Home',
           component: () => import('@/views/index.vue'),
         },
       ],
@@ -43,7 +43,7 @@ const router = createRouter({
       children: [
         {
           path: '/about/index',
-          name: 'AboutIndex',
+          name: 'About',
           component: () => import('@/views/about/index.vue'),
         },
       ],

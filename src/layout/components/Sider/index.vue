@@ -7,18 +7,20 @@ import { loadMenus } from './menus';
 const collapsed = ref<boolean>(false)
 
 const activeKey = ref<string | null>(null)
-
-
+const route = useRoute()
 const menuOptions = ref<MenuOption[]>()
 
 // router是全局路由对象
 const router = useRouter()
 
-
-
-
+const menuRef = ref()
 onMounted(() => {
   menuOptions.value = loadMenus(router.options.routes)
+  activeKey.value = route.name as string
+  nextTick(() => {
+    menuRef.value?.showOption(activeKey.value)
+
+  })
 })
 </script>
 
@@ -28,7 +30,7 @@ onMounted(() => {
 
     <Logo :collapsed="collapsed"></Logo>
     <n-menu v-model:value="activeKey" :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22"
-      :options="menuOptions" />
+      :root-indent="12" :indent="12" :options="menuOptions" ref="menuRef" />
 
   </n-layout-sider>
 </template>
