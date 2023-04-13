@@ -10,6 +10,12 @@ import {
 } from 'unocss'
 
 
+const icons = [
+  'i-carbon-list',
+  'i-carbon-home',
+  'i-carbon-information-square'
+]
+
 export default defineConfig({
   shortcuts: [],
   presets: [
@@ -32,7 +38,7 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-  safelist: 'prose m-auto text-left'.split(' '),
+  safelist: [...'prose m-auto text-left'.split(' '), ...icons],
   theme: {
     colors: {
       primary: {
