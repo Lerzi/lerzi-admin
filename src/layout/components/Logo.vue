@@ -1,18 +1,14 @@
 <script setup lang="ts">
-
-const props = defineProps<{ collapsed: Boolean }>()
-
-
-
+defineProps<{ collapsed: Boolean }>()
 </script>
 
 <template>
-  <div flex :class="{ 'px-4': !collapsed }" transition-all>
-    <n-icon :size="70">
-      <div i-carbon-letter-ll text-6xl></div>
+  <div flex :class="{ 'px-4': !collapsed }" transition-all cursor-pointer border-b-1 shadow-inner>
+    <n-icon :size="60">
+      <div i-carbon-letter-ll text-5xl></div>
     </n-icon>
-    <div flex items-center text-2xl overflow-hidden v-show="!collapsed">
-      LerziAdmin
+    <div flex flex-nowrap items-center text-xl overflow-hidden truncate v-show="!collapsed">
+      LerZi管理系统
     </div>
   </div>
 </template>
