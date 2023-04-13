@@ -1,15 +1,3 @@
 {
-  // "extends": "@antfu",
-  // "vue/html-self-closing": [
-  //   "error",
-  //   {
-  //     "html": {
-  //       "void": "always",
-  //       "normal": "never",
-  //       "component": "never"
-  //     },
-  //     "svg": "always",
-  //     "math": "always"
-  //   }
-  // ]
+  "extends": "@antfu",
 }
