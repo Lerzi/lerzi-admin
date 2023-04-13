@@ -16,6 +16,7 @@ const router = useRouter()
 const menuRef = ref()
 onMounted(() => {
   menuOptions.value = loadMenus(router.options.routes)
+  console.log('menuOptions :>> ', menuOptions);
   activeKey.value = route.name as string
   nextTick(() => {
     menuRef.value?.showOption(activeKey.value)
@@ -30,7 +31,7 @@ onMounted(() => {
 
     <Logo :collapsed="collapsed"></Logo>
     <n-menu v-model:value="activeKey" :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22"
-      :root-indent="12" :indent="12" :options="menuOptions" ref="menuRef" />
+      :options="menuOptions" ref="menuRef" />
 
   </n-layout-sider>
 </template>

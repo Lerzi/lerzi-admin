@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Sider from './components/Sider/index.vue'
+import PageHeader from './components/PageHeader/index.vue'
 </script>
 
 <template>
@@ -7,7 +8,7 @@ import Sider from './components/Sider/index.vue'
     <n-layout has-sider position="absolute">
       <Sider></Sider>
       <n-layout>
-        <n-layout-header>颐和园路</n-layout-header>
+        <PageHeader></PageHeader>
         <n-layout-content content-style="padding: 24px;">
           <router-view />
         </n-layout-content>
