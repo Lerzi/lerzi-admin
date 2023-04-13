@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import type { MenuOption } from 'naive-ui';
-import Logo from './Logo.vue'
+import Logo from '../Logo.vue'
 import { loadMenus } from './menus';
 
 const collapsed = ref<boolean>(false)
@@ -26,7 +26,7 @@ onMounted(() => {
   <n-layout-sider :bordered="true" collapse-mode="width" :collapsed-width="64" :width="240" :collapsed="collapsed"
     show-trigger @collapse="collapsed = true" @expand="collapsed = false">
 
-    <Logo></Logo>
+    <Logo :collapsed="collapsed"></Logo>
     <n-menu v-model:value="activeKey" :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22"
       :options="menuOptions" />
 
