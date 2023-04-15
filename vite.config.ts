@@ -19,7 +19,7 @@ export default defineConfig({
       vueJsx: VueJsx(),
     },
   }),
-  // https://github.com/antfu/unplugin-auto-imports
+  // https://github.com/antfu/unplugin-auto-import
   AutoImport({
     imports: [
       'vue',
@@ -28,6 +28,7 @@ export default defineConfig({
       'vue/macros',
       '@vueuse/head',
       '@vueuse/core',
+      'pinia'
     ],
     dts: 'src/auto-imports.d.ts',
     dirs: [
