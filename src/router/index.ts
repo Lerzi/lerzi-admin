@@ -3,7 +3,7 @@ import Layout from '@/layout/index.vue'
 import type { App } from 'vue'
 import { createGuard } from './guard'
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
