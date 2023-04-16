@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from '@/App.vue'
-import router from '@/router'
+import { setupRouter } from '@/router'
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
 
@@ -16,7 +16,8 @@ import '@/assets/index.css'
 const app = createApp(App)
 
 app.use(createPinia())
-app.use(router)
+
+setupRouter(app)
 
 const meta = document.createElement('meta')
 meta.name = 'naive-ui-style'

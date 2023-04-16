@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAuthStore } from '@/stores/auth';
+
 interface FormValue {
   username?: string
   password?: string
@@ -21,11 +23,14 @@ const rules = ref({
     trigger: ['input', 'blur']
   }
 })
+
+const authStore = useAuthStore()
+
 const formRef = ref()
 async function handelLogin() {
   try {
-    const valid = await formRef.value?.validate()
-    console.log('valid :>> ', valid);
+    await formRef.value?.validate()
+    await authStore.login(formValue.value.username as string, formValue.value.password as string)
   } catch (error) {
     console.error(error);
   }
