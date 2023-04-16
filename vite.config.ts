@@ -5,9 +5,11 @@ import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 
 import VueMacros from 'unplugin-vue-macros/vite'
+import DefineOptions from 'unplugin-vue-define-options/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { viteMockServe } from 'vite-plugin-mock'
 
 import UnoCSS from 'unocss/vite'
 
@@ -22,6 +24,7 @@ export default defineConfig({
       vueJsx: VueJsx(),
     },
   }),
+  viteMockServe(),
   // https://github.com/antfu/unplugin-auto-import
   AutoImport({
     imports: [
@@ -47,6 +50,7 @@ export default defineConfig({
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
     dts: 'src/components.d.ts',
   }),
+  DefineOptions(),
   // https://unocss.dev/integrations/vite
   UnoCSS(),
   ],

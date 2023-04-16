@@ -1,5 +1,7 @@
 <script setup lang="ts">
+
 const msg = ref<string>('hello word')
+
 </script>
 
 <template>

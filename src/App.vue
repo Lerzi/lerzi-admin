@@ -34,7 +34,11 @@ const themeOverrides = ref<GlobalThemeOverrides>({
 
 <template>
   <n-config-provider h-full :theme-overrides="themeOverrides">
-    <RouterView />
+    <NaiveProvider>
+
+      <RouterView />
+    </NaiveProvider>
+
   </n-config-provider>
 </template>
 
