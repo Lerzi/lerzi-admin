@@ -23,7 +23,9 @@ export default defineConfig({
       vueJsx: VueJsx(),
     },
   }),
-  viteMockServe(),
+  viteMockServe(
+    { mockPath: 'mock', }
+  ),
   // https://github.com/antfu/unplugin-auto-import
   AutoImport({
     imports: [

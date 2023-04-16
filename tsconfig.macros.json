@@ -6,7 +6,6 @@
     "lib": [],
     "types": [
       "unplugin-vue-macros/macros-global",
-      "unplugin-vue-define-options/macros-global"
     ]
   },
   "vueCompilerOptions": {
