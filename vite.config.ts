@@ -5,7 +5,6 @@ import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 
 import VueMacros from 'unplugin-vue-macros/vite'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -50,7 +49,6 @@ export default defineConfig({
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
     dts: 'src/components.d.ts',
   }),
-  DefineOptions(),
   // https://unocss.dev/integrations/vite
   UnoCSS(),
   ],
