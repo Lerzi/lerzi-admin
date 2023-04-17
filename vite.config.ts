@@ -15,7 +15,9 @@ import UnoCSS from 'unocss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: 1105
+    port: 1105,
+    host: '0.0.0.0',
+    open: true
   },
   plugins: [VueMacros({
     plugins: {
