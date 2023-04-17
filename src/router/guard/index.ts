@@ -12,9 +12,6 @@ export function createGuard(router: Router) {
     window.$loadingBar?.start()
     const isLogin = Boolean(useStorage('Token', null).value)
 
-
-
-
     const actions: Actions[] = [
       {
         // 已登录状态 前往登录页，重定向到首页
