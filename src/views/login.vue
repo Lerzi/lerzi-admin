@@ -7,8 +7,8 @@ interface FormValue {
 }
 
 const formValue = ref<FormValue>({
-  username: undefined,
-  password: undefined
+  username: 'lerzi',
+  password: 'lerzi123'
 })
 
 const rules = ref({
