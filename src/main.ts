@@ -14,8 +14,8 @@ import 'vfonts/FiraCode.css'
 import '@/assets/index.css'
 
 const app = createApp(App)
-
-app.use(createPinia())
+const pinia = createPinia()
+app.use(pinia)
 
 setupRouter(app)
 

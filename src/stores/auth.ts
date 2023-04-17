@@ -2,11 +2,11 @@ import { login as apiLogin } from '@/api/auth'
 import type { RemovableRef } from '@vueuse/core'
 import { router } from '@/router'
 // import { useStorage } from '@vueuse/core'
-const token = useStorage('Token', undefined)
+const token = useStorage('Token', null)
 export const useAuthStore = defineStore('authStore', {
   state() {
     return {
-      token: token as RemovableRef<undefined | string>
+      token: token as RemovableRef<null | string>
     }
   },
   actions: {
@@ -31,7 +31,7 @@ export const useAuthStore = defineStore('authStore', {
     }
   },
   getters: {
-    getToken(): string | undefined {
+    getToken(): string | null {
       return this.token
     }
   }
