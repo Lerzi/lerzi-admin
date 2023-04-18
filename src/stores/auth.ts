@@ -28,6 +28,10 @@ export const useAuthStore = defineStore('authStore', {
           reject(error)
         }
       })
+    },
+    logout() {
+      this.token = null
+      router.push('/login')
     }
   },
   getters: {

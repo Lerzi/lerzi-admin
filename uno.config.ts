@@ -13,7 +13,9 @@ import {
 const icons = [
   'i-carbon-list',
   'i-carbon-home',
-  'i-carbon-information-square'
+  'i-carbon-information-square',
+  'i-carbon-user-profile',
+  'i-carbon-logout'
 ]
 
 export default defineConfig({
