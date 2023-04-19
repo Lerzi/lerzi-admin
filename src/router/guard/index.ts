@@ -39,7 +39,6 @@ export function createGuard(router: Router) {
         // 已登录状态，进入页面
         flag: isLogin,
         action() {
-          console.log('go');
           next();
         },
       }
@@ -51,6 +50,7 @@ export function createGuard(router: Router) {
       if (flag) {
         action()
       }
+      return flag;
     })
     // next();
   })

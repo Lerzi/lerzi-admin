@@ -6,7 +6,9 @@ import { loadMenus } from './menus';
 
 const collapsed = ref<boolean>(false)
 
-const activeKey = ref<string | null>(null)
+const activeKey = computed(() => {
+  return route.name as string
+})
 const route = useRoute()
 const menuOptions = ref<MenuOption[]>()
 
@@ -16,11 +18,8 @@ const router = useRouter()
 const menuRef = ref()
 onMounted(() => {
   menuOptions.value = loadMenus(router.options.routes)
-  console.log('menuOptions :>> ', menuOptions);
-  activeKey.value = route.name as string
   nextTick(() => {
     menuRef.value?.showOption(activeKey.value)
-
   })
 })
 </script>
