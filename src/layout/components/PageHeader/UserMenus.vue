@@ -14,7 +14,7 @@ function renderIcon(icon: string) {
 const options = ref([
   {
     label: '用户中心',
-    key: 'user-center',
+    key: 'userCenter',
     icon: renderIcon('i-carbon-user-profile')
   },
   {
@@ -52,6 +52,9 @@ const actions: Actions = {
         // message.error('取消')
       }
     })
+  },
+  userCenter() {
+
   }
 }
 
