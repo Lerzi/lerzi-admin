@@ -33,10 +33,9 @@ pnpm lint
 ## TODO LIST
 
 - [ ] layout page header
-  - [ ] 
   - [x] 退出登录
   - [x] 面包屑
   - [ ] 用户中心
-  - [ ] GitHUb
+  - [x] GitHUb
   - [ ] 搜索
 - [ ] 标签栏

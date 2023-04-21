@@ -17,7 +17,8 @@ export default defineConfig({
   server: {
     port: 1105,
     host: '0.0.0.0',
-    open: true
+    open: true,
+    hmr: true
   },
   plugins: [VueMacros({
     plugins: {
