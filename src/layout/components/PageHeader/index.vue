@@ -2,6 +2,7 @@
 import Breadcrumb from '../Breadcrumb.vue'
 import UserMenus from './UserMenus.vue'
 import GitHubLink from './GitHubLink.vue'
+import Search from './Search.vue'
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import GitHubLink from './GitHubLink.vue'
       <Breadcrumb></Breadcrumb>
 
       <div h-full flex>
+        <Search></Search>
         <GitHubLink></GitHubLink>
         <UserMenus></UserMenus>
       </div>
