@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import type { MenuOption } from 'naive-ui';
 import Basic from './Basic.vue'
+import { router } from '@/router';
 
 const value = ref()
-const options = computed(() => {
-  return []
-})
 
 const visible = ref<boolean>(false)
 
@@ -19,6 +18,15 @@ function handelClick() {
 function onBlur() {
   visible.value = false
 }
+
+function handelSelect(_: string, option: MenuOption) {
+  visible.value = false
+  router.push({
+    path: option.key as string
+  })
+}
+
+const menuOptions = useMenus(router.options.routes, 'Text')
 </script>
 
 <template>
@@ -28,11 +36,9 @@ function onBlur() {
         <div w-12 text-5 i-carbon-search></div>
       </div>
       <div w-0 transition-all :class="{ 'w-64': visible }">
-        <n-select pr-2 ref="input" v-show="visible" @blur="onBlur" v-model:value="value" filterable placeholder="请输入关键词搜索"
-          :options="options" />
+        <n-tree-select pr-2 ref="input" v-show="visible" @blur="onBlur" @update:value="handelSelect" v-model:value="value"
+          filterable placeholder="请输入关键词搜索" :options="menuOptions" />
       </div>
-
-
     </Basic>
   </div>
 </template>

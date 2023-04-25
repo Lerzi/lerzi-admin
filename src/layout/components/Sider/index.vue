@@ -1,8 +1,5 @@
 <script setup lang="ts">
-
-import type { MenuOption } from 'naive-ui';
 import Logo from '../Logo.vue'
-import { loadMenus } from './menus';
 
 const collapsed = ref<boolean>(false)
 
@@ -10,14 +7,12 @@ const activeKey = computed(() => {
   return route.name as string
 })
 const route = useRoute()
-const menuOptions = ref<MenuOption[]>()
-
-// router是全局路由对象
 const router = useRouter()
+const menuOptions = useMenus(router.options.routes)
+// router是全局路由对象
 
 const menuRef = ref()
 onMounted(() => {
-  menuOptions.value = loadMenus(router.options.routes)
   nextTick(() => {
     menuRef.value?.showOption(activeKey.value)
   })

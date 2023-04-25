@@ -1,11 +1,20 @@
 import { NIcon, type MenuOption } from "naive-ui";
 import { RouterLink, type RouteRecordRaw } from 'vue-router';
+import type { Ref } from 'vue'
+
+type menuType = 'RouterLink' | 'Text'
+
+export function useMenus(routes: readonly RouteRecordRaw[], type: menuType = 'RouterLink'): Ref<MenuOption[]> {
+  const res = ref<MenuOption[]>()
+  res.value = loadMenus(routes, type)
+  return res as Ref<MenuOption[]>
+}
 
 /**
  * 
  * @param routes 
  */
-export function loadMenus(routes: readonly RouteRecordRaw[]): MenuOption[] {
+function loadMenus(routes: readonly RouteRecordRaw[], type: menuType): MenuOption[] {
   let res: MenuOption[] = []
   routes.forEach(route => {
     const { name, path, meta } = route;
@@ -13,7 +22,7 @@ export function loadMenus(routes: readonly RouteRecordRaw[]): MenuOption[] {
 
     let menuChildren: MenuOption[] | undefined
     if (route.children && route.children.length > 0) {
-      menuChildren = loadMenus(route.children);
+      menuChildren = loadMenus(route.children, type);
     }
     const menuItem: MenuOption = addMenuItem({
       routePath: path,
@@ -21,7 +30,7 @@ export function loadMenus(routes: readonly RouteRecordRaw[]): MenuOption[] {
       routeName,
       children: menuChildren,
       icon: meta?.icon as string | undefined
-    })
+    }, type)
     if (!meta?.hide) {
       res.push(menuItem)
     }
@@ -38,8 +47,8 @@ interface Config {
 }
 
 
-function addMenuItem(config: Config): MenuOption {
-  const { children, title, routeName, routePath, icon } = config
+function addMenuItem(config: Config, type: menuType): MenuOption {
+  const { children, title, routePath, icon } = config
   let res: MenuOption = {}
   res.label = () =>
     h(
@@ -47,7 +56,8 @@ function addMenuItem(config: Config): MenuOption {
       {
         to: {
           path: routePath,
-        }
+        },
+        style: 'width:100%'
       },
       { default: () => title }
     )
@@ -57,7 +67,11 @@ function addMenuItem(config: Config): MenuOption {
     res.label = title
   }
 
-  res.key = routeName
+  if (type === 'Text') {
+    res.label = title
+  }
+
+  res.key = routePath
   res.icon = renderIcon(icon || 'i-carbon-list')
 
   return res
