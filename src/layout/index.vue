@@ -11,8 +11,10 @@ const { toggle } = useFullscreen(appMain)
       <Sider></Sider>
       <n-layout>
         <PageHeader @full="toggle"></PageHeader>
-        <n-layout-content ref="appMain" content-style="padding: 24px;">
-          <router-view />
+        <n-layout-content ref="appMain">
+          <div p-6>
+            <router-view />
+          </div>
         </n-layout-content>
       </n-layout>
     </n-layout>
