@@ -9,6 +9,7 @@ interface Actions {
 export function createGuard(router: Router) {
 
   router.beforeEach(async (to, form, next) => {
+    useTitle(`${import.meta.env.VITE_APP_TITLE} -----`)
     window.$loadingBar?.start()
     const isLogin = Boolean(useStorage('Token', null).value)
 
