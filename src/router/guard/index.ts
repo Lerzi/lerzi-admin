@@ -69,6 +69,8 @@ export function createGuard(router: Router) {
   })
 
   router.afterEach(to => {
+    console.log('to :>> ', to);
+    useTitle(`${import.meta.env.VITE_APP_TITLE} - ${to?.meta?.title}`)
     window.$loadingBar?.finish()
   })
 
