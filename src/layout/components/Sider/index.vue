@@ -4,7 +4,7 @@ import Logo from '../Logo.vue'
 const collapsed = ref<boolean>(false)
 
 const activeKey = computed(() => {
-  return route.name as string
+  return route.path as string
 })
 const route = useRoute()
 const router = useRouter()
@@ -24,7 +24,7 @@ onMounted(() => {
     show-trigger @collapse="collapsed = true" @expand="collapsed = false">
 
     <Logo :collapsed="collapsed"></Logo>
-    <n-menu v-model:value="activeKey" :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22"
+    <n-menu :value="activeKey" :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22"
       :options="menuOptions" ref="menuRef" />
 
   </n-layout-sider>

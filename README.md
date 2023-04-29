@@ -32,11 +32,11 @@ pnpm lint
 
 ## TODO LIST
 
-- [ ] 动态路由
+- [ ] 动态路由&&权限
 - [ ] layout page header
   - [x] 退出登录
   - [x] 面包屑
   - [ ] 用户中心
   - [x] GitHUb
-  - [ ] 搜索
+  - [x] 搜索
 - [ ] 标签栏

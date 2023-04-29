@@ -1,3 +1,4 @@
+const TOKEN = 'SuperToken'
 export default [
   {
     url: '/login',
@@ -9,7 +10,7 @@ export default [
           code: 200,
           msg: 'success',
           data: {
-            token: 'success'
+            token: TOKEN
           }
         }
       } else {
@@ -17,6 +18,29 @@ export default [
           code: 500,
           msg: '用户名或密码错误',
           data: null
+        }
+      }
+    }
+  }, {
+    url: '/getUserInfo',
+    method: 'get',
+    response: ({ query }) => {
+      if (query.token === TOKEN) {
+        return {
+          code: 200,
+          msg: 'success',
+          data: {
+            id: 1,
+            userName: 'lerzi',
+            roles: ['superAdmin']
+          }
+        }
+      } else {
+        return {
+          code: 0,
+          msg: 'error',
+          data: {
+          }
         }
       }
     }
