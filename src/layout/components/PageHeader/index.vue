@@ -4,6 +4,7 @@ import UserMenus from './UserMenus.vue'
 import GitHubLink from './GitHubLink.vue'
 import Search from './Search.vue'
 import Full from './Full.vue'
+import Tabs from './Tabs.vue'
 </script>
 
 <template>
@@ -18,5 +19,6 @@ import Full from './Full.vue'
         <UserMenus></UserMenus>
       </div>
     </div>
+    <Tabs></Tabs>
   </n-layout-header>
 </template>
