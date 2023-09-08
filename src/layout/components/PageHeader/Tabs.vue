@@ -1,16 +1,30 @@
 <script setup lang="ts">
-const name = ref(1)
+const router = useRouter()
+const route = useRoute()
+console.log('route :>> ', route);
+const current = computed({
+  get() {
+    return route.path
+  },
+  set(newPath) {
+    router.push({
+      path: newPath
+    })
+  }
+})
 
 function handleClose() {
 
 }
 
-const panels = ref([1])
+const tabStore = useTabStore()
+const tabs = tabStore.tabs
 </script>
 
 <template>
-  <n-tabs v-model:value="name" type="card" closable :size="'small'" tab-style="min-width: 80px;" @close="handleClose">
-    <n-tab v-for="panel in panels" :key="panel" :tab="panel.toString()" :name="panel">
+  <n-tabs v-model:value="current" type="card" closable :size="'medium'" w-full
+    tab-style="min-width: 80px;justify-content: center;" @close="handleClose">
+    <n-tab v-for="tab in tabs" :key="tab.path" :tab="tab.meta.title" :name="tab.path">
     </n-tab>
   </n-tabs>
 </template>

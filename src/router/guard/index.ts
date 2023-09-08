@@ -32,7 +32,7 @@ export function createGuard(router: Router) {
         // 白名单不需要登录 直接进入
         flag: isWhite(to.path),
         action() {
-          next();
+          actionNext();
         },
       },
       {
@@ -47,14 +47,14 @@ export function createGuard(router: Router) {
         // 已登录状态，并且有权限 直接进入
         flag: isLogin && (Boolean(getRoles) && getRoles?.length > 0),
         action() {
-          next();
+          actionNext();
         },
       },
       {
         // 已登录状态，无权限信息获取用户权限信息并挂载动态路由
         flag: isLogin,
         async action() {
-          next();
+          actionNext();
         },
       }
     ]
@@ -66,11 +66,16 @@ export function createGuard(router: Router) {
       }
       return flag;
     })
+
+    function actionNext() {
+      const tabStore = useTabStore()
+      tabStore.changeRoute(to)
+      next();
+    }
     // next();
   })
 
   router.afterEach(to => {
-    console.log('to :>> ', to);
     useTitle(`${import.meta.env.VITE_APP_TITLE} - ${to?.meta?.title}`)
     window.$loadingBar?.finish()
   })

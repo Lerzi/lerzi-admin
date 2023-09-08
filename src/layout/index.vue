@@ -13,7 +13,7 @@ const { toggle } = useFullscreen(appMain)
       <n-layout>
         <div h-full flex flex-col>
           <PageHeader @full="toggle"></PageHeader>
-          <div w-full flex-1 bg-gray-2:50 p-6>
+          <div w-full flex-1 p-6>
             <router-view />
           </div>
         </div>
