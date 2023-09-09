@@ -21,7 +21,7 @@ onMounted(() => {
 
 <template>
   <n-layout-sider :bordered="true" collapse-mode="width" :collapsed-width="64" :width="240" :collapsed="collapsed"
-    show-trigger @collapse="collapsed = true" @expand="collapsed = false">
+    show-trigger @collapse="collapsed = true" @expand="collapsed = false" style="background-color: #f7f7fa;">
 
     <Logo :collapsed="collapsed"></Logo>
     <n-menu :value="activeKey" :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22"
