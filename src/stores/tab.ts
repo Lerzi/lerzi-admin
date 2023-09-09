@@ -28,12 +28,17 @@ export const useTabStore = defineStore('tabStore', {
   },
   actions: {
     addTab(route: RouteLocationNormalized) {
-      console.log('route :>> ', route);
+      if (route.path === '/login') {
+        return
+      }
+
+      if (route.path === '/404') {
+        return
+      }
       this.tabs.push(route)
     },
     delTab(path: string) {
       const index = this.tabs.findIndex(item => item.path == path)
-      console.log('index :>> ', index);
       this.tabs.splice(index, 1)
     },
     changeRoute(route: RouteLocationNormalized) {
