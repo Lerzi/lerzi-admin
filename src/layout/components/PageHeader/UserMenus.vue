@@ -37,6 +37,8 @@ interface Actions {
 }
 const dialog = useDialog()
 const authStore = useAuthStore()
+const router = useRouter()
+
 const actions: Actions = {
   logout() {
     dialog.info({
@@ -54,7 +56,9 @@ const actions: Actions = {
     })
   },
   userCenter() {
-
+    router.push({
+      path: '/user/index'
+    })
   }
 }
 

@@ -40,6 +40,29 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/user',
+    name: 'User',
+    component: Layout,
+    meta: {
+      title: '用户中心',
+      icon: 'i-carbon-user-profile',
+      hide: true
+    },
+    redirect: '/user/index',
+    children: [
+      {
+        path: '/user/index',
+        name: 'UserIndex',
+        component: () => import('@/views/user/index.vue'),
+        meta: {
+          title: '用户中心',
+          icon: 'i-carbon-user-profile',
+          hide: true,
+        }
+      },
+    ],
+  },
 
   {
     path: '/error',
