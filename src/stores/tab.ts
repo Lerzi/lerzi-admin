@@ -31,6 +31,11 @@ export const useTabStore = defineStore('tabStore', {
       console.log('route :>> ', route);
       this.tabs.push(route)
     },
+    delTab(path: string) {
+      const index = this.tabs.findIndex(item => item.path == path)
+      console.log('index :>> ', index);
+      this.tabs.splice(index, 1)
+    },
     changeRoute(route: RouteLocationNormalized) {
       if (this.tabs.findIndex((item: RouteLocationNormalized) => item.path === route.path) === -1) {
         this.addTab(route)
