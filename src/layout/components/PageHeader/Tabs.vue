@@ -16,7 +16,6 @@ const tabStore = useTabStore()
 const tabs = tabStore.tabs
 
 function handleClose(path: string) {
-  console.log('path :>> ', path);
   tabStore.delTab(path)
 }
 
