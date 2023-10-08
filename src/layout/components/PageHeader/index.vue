@@ -19,6 +19,8 @@ import Tabs from './Tabs.vue'
         <UserMenus></UserMenus>
       </div>
     </div>
-    <Tabs></Tabs>
+    <div py-1>
+      <Tabs></Tabs>
+    </div>
   </n-layout-header>
 </template>

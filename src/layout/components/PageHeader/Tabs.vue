@@ -25,6 +25,9 @@ function handleClose(path: string) {
 <template>
   <n-tabs v-model:value="current" type="card" :size="'medium'" tab-style="min-width: 80px;justify-content: center;"
     @close="handleClose">
+    <template #prefix>
+      <div w-1></div>
+    </template>
     <n-tab v-for="tab in tabs" :key="tab.path" :tab="tab.meta.title" :name="tab.path"
       :closable="tab.path !== '/home/index'" @click.middle="handleClose(tab.path)">
     </n-tab>
