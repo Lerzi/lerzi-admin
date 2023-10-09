@@ -12,6 +12,8 @@ import { viteMockServe } from 'vite-plugin-mock'
 
 import UnoCSS from 'unocss/vite'
 
+import VueDevTools from 'vite-plugin-vue-devtools'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -23,6 +25,7 @@ export default defineConfig({
     plugins: {
       vue: Vue(),
       vueJsx: VueJsx(),
+
     },
   }),
   viteMockServe(
@@ -55,6 +58,7 @@ export default defineConfig({
   }),
   // https://unocss.dev/integrations/vite
   UnoCSS(),
+  VueDevTools(),
   ],
   resolve: {
     alias: {
